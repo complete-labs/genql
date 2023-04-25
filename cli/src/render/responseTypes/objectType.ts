@@ -61,8 +61,8 @@ export const objectType = (
     // let extensions =
     //     interfaceNames.length > 0 ? ` extends ${interfaceNames.join(',')}` : ''
     ctx.addCodeBlock(
-        `${typeComment(type)}export interface ${
+        `${typeComment(type)}export type ${
             type.name
-        } {\n${fieldStrings.join('\n')}\n}`,
+        } = {\n${fieldStrings.join('\n')}\n}`,
     )
 }

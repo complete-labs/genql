@@ -21,8 +21,8 @@ export const unionType = (type: GraphQLUnionType, ctx: RenderContext) => {
     fieldStrings.push('__typename?: boolean | number')
 
     ctx.addCodeBlock(
-        `${typeComment(type)}export interface ${requestTypeName(
+        `${typeComment(type)}export type ${requestTypeName(
             type,
-        )}{\n${fieldStrings.map((x) => '    ' + x).join(',\n')}\n}`,
+        )} = {\n${fieldStrings.map((x) => '    ' + x).join(',\n')}\n}`,
     )
 }

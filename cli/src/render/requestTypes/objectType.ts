@@ -89,9 +89,9 @@ export const objectType = (
     )
 
     ctx.addCodeBlock(
-        `${typeComment(type)}export interface ${requestTypeName(
+        `${typeComment(type)}export type ${requestTypeName(
             type,
-        )}{\n${fieldStrings.join('\n')}\n}`,
+        )} = {\n${fieldStrings.join('\n')}\n}`,
     )
 }
 
