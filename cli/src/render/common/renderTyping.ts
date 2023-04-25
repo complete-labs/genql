@@ -5,16 +5,17 @@ const render = (
   type: GraphQLOutputType | GraphQLInputType,
   nonNull: boolean,
   root: boolean,
+  required: boolean,
   wrap: (x: string) => string = x => x
 ): string => {
     
   if (root) {
     
       if (isNonNullType(type)) {
-        return `: ${render(type.ofType, true, false, wrap)}`
+        return `: ${render(type.ofType, true, false, required, wrap)}`
       } else {
-        const rendered = render(type, true, false, wrap)
-        return `: (${rendered} | null)`
+        const rendered = render(type, true, false, required, wrap)
+        return `${required ? "" : "?"}: (${rendered} | null)`;
       }
     
   }
@@ -35,16 +36,17 @@ const render = (
   }
 
   if (isListType(type)) {
-    const typing = `${render(type.ofType, false, false, wrap)}[]`
+    const typing = `${render(type.ofType, false, false, required, wrap)}[]`
 
     
     return nonNull ? typing : `(${typing} | null)`
     
   }
 
-  return render((type as GraphQLNonNull<any>).ofType, true, false, wrap)
+  return render((type as GraphQLNonNull<any>).ofType, true, false, required, wrap)
 }
 
 export const renderTyping = (
   type: GraphQLOutputType | GraphQLInputType,
-) => render(type, false, true,  )
+  required?: boolean,
+) => render(type, false, true, !!required,  )
