@@ -14,7 +14,7 @@ const render = (
         return `: ${render(type.ofType, true, false, wrap)}`
       } else {
         const rendered = render(type, true, false, wrap)
-        return `?: (${rendered} | null)`
+        return `: (${rendered} | null)`
       }
     
   }
