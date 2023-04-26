@@ -37,7 +37,7 @@ export const objectType = (
             return `${fieldComment(f)}${f.name}${renderTyping(
                 f.type,
                 true,
-                false,
+                true,
                 undefined,
                 undefined,
                 true,
