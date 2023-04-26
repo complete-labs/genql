@@ -14,7 +14,7 @@ import { RenderContext } from '../common/RenderContext'
 import { sortBy } from 'lodash'
 import { enumType } from './enumType'
 import { objectType } from './objectType'
-import { renderScalarTypes } from './scalarType'
+import { renderScalarTypes, renderResponseScalarTypes } from "./scalarType";
 import { unionType } from './unionType'
 import { interfaceType } from './interfaceType'
 import { sortKeys } from '../common/support'
@@ -35,6 +35,14 @@ export const renderResponseTypes = (
             ),
         ),
     )
+    ctx.addCodeBlock(
+      renderResponseScalarTypes(
+        ctx,
+        Object.values(typeMap).filter((type): type is GraphQLScalarType =>
+          isScalarType(type)
+        )
+      )
+    );
     for (const name in typeMap) {
         if (excludedTypes.includes(name)) continue
 

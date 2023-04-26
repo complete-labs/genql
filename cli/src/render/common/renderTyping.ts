@@ -25,7 +25,7 @@ const render = (
 
     // if is a scalar use the scalar interface to not expose reserved words
     if (isScalarType(type)) {
-      typeName = `Scalars['${typeName}']`
+      typeName = `${required ? "ResponseScalars" : "Scalars"}['${typeName}']`;
     }
 
     const typing = wrap(typeName)

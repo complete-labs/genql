@@ -15,8 +15,9 @@ const knownTypes: {
 export const getTypeMappedAlias = (
     type: GraphQLNamedType,
     ctx: RenderContext,
+    useConfig?: boolean,
 ) => {
-    const map = { ...knownTypes, ...(ctx?.config?.scalarTypes || {}) }
+    const map = { ...knownTypes, ...(useConfig ? ctx?.config?.scalarTypes || {} : {}) }
     return map?.[type.name] || 'any'
 }
 
