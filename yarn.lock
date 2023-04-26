@@ -1654,6 +1654,26 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.3.0.tgz#d1689566b94c25423d1fb2cb031c5c2ea4c9f939"
   integrity sha512-VniCGPIgSGNEgOkh5phb3iKmSGIzcwrccy3IomMFRWPCMiCk2y98UQNJEoDs1yIHtZMstVjYWKYxnunIGzC5UQ==
 
+"@genql/cli@^2.10.0":
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/@genql/cli/-/cli-2.10.0.tgz#ab39444b0a7ee041d1fa5183f10a23b8c1d6d1f9"
+  integrity sha512-X47y17qT8M0LAwIE9Wu0jMWm4dW9Y8c8dT7iDsmV3gkKZXAnRBoXUVcrZY+RrZLp8N7orDPyhE7pXAMFf2CcaA==
+  dependencies:
+    "@genql/runtime" "^2.10.0"
+    "@graphql-tools/graphql-file-loader" "^6.0.10"
+    "@graphql-tools/load" "^6.0.10"
+    chalk "^4.1.0"
+    fs-extra "^9.0.1"
+    graphql "*"
+    isomorphic-unfetch "^3.0.0"
+    listr "^0.14.3"
+    lodash "^4.17.20"
+    mkdirp "^0.5.1"
+    prettier "^1.19.1"
+    qs "^6.9.1"
+    rimraf "^2.6.3"
+    yargs "^15.3.1"
+
 "@google-cloud/common@^2.1.1":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@google-cloud/common/-/common-2.4.0.tgz#2783b7de8435024a31453510f2dab5a6a91a4c82"
