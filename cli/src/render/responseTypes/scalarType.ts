@@ -13,3 +13,14 @@ export function renderScalarTypes(
     })
     return `export type Scalars = {\n${content}}`
 }
+
+export function renderResponseScalarTypes(
+    ctx: RenderContext,
+    types: GraphQLScalarType[],
+) {
+    let content = ''
+    types.forEach((type) => {
+        content += `    ${type.name}: ${getTypeMappedAlias(type, ctx, true)},\n`
+    })
+    return `export type ResponseScalars = {\n${content}}`
+}
