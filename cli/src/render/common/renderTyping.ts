@@ -28,7 +28,10 @@ const render = (
 
     // if is a scalar use the scalar interface to not expose reserved words
     if (isScalarType(type)) {
-      typeName = `Scalars['${typeName}']`
+      typeName =
+        undefinableValues || undefinableFields
+          ? `Scalars['${typeName}']`
+          : `ResponseScalars['${typeName}']`;
     }
 
     const typing = wrap(typeName)
